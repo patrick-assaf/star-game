@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const PlayNumber = props => (
+    <button className="number">
+        {props.number}
+    </button>
+);
+
 const StarMatch = () => {
     const [stars, setStars] = React.useState(utils.random(1, 9));
     return (
@@ -17,7 +23,7 @@ const StarMatch = () => {
                 </div>
                 <div className="right">
                     {utils.range(1, 9).map(number =>
-                        <button key={number} className="number">{number}</button>
+                        <PlayNumber key={number} number={number} />
                     )}
                 </div>
             </div>

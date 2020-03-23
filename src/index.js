@@ -2,8 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const StarsDisplay = props => (
+    <>
+        {utils.range(1, props.count).map(starID =>
+            <div key={starID} className="star" />
+        )}
+    </>
+);
+
 const PlayNumber = props => (
-    <button className="number">
+    <button className="number" onClick={() => console.log("Num", props.number)}>
         {props.number}
     </button>
 );
@@ -17,9 +25,7 @@ const StarMatch = () => {
             </div>
             <div className="body">
                 <div className="left">
-                    {utils.range(1, stars).map(starID =>
-                        <div key={starID} className="star" />
-                    )}
+                    <StarsDisplay count={stars}/>
                 </div>
                 <div className="right">
                     {utils.range(1, 9).map(number =>
